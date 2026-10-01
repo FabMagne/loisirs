@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Week-end à Berlin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@700&family=Figtree:wght@400;500;700;800&display=swap">
+<style>
+html, body { margin: 0; }
+/* Layout: one mobile-first column of sticker-style cards, sticky day nav, grids for addresses */
+:root {
+  --bg: #FFF8EC;
+  --dot: #EADFC8;
+  --surface: #FFFFFF;
+  --ink: #1B1B2F;
+  --muted: #4A4458;
+  --line: #1B1B2F;
+  --yellow: #F7C948;
+  --yellow-soft: #FFE27A;
+  --fri: #D21F5C; --fri-ink: #B8174F; --fri-soft: #FFF0F5; --fri-dash: #F2AFC6;
+  --sat: #2F6FE0; --sat-ink: #1D56B0; --sat-soft: #EEF4FF; --sat-dash: #B9CDF2;
+  --sun: #F28A26; --sun-ink: #A84A06; --sun-soft: #FFF3E6; --sun-dash: #F5C79A;
+  --resto: #CF3339; --resto-soft: #FFF0F0;
+  --bar: #17834A; --bar-soft: #ECF8F0;
+  --voir: #7C4DDB; --voir-ink: #5B34A8; --voir-soft: #F3EEFF;
+  --info: #0B7373; --info-soft: #E6F6F6;
+  --on-color: #FFFFFF;
+  --map-bg: #F6EFDF; --map-park: #CFEBC2; --map-water: #9DD0F5; --map-street: #FFFFFF; --map-u2: #E8B4A6; --map-text: #6B6457;
+  --hero-ink: #1B1B2F;
+  --font-display: 'Bricolage Grotesque', 'Arial Black', system-ui, sans-serif;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17161F; --dot: #2A2836; --surface: #22202C; --ink: #F4EFE6; --muted: #C9C1D3; --line: #0B0A10;
+    --yellow: #E9B934; --yellow-soft: #F2D35E;
+    --fri-ink: #FF7AA6; --fri-soft: #2C1A24; --fri-dash: #5A2A3C;
+    --sat-ink: #8CB4FF; --sat-soft: #1A2235; --sat-dash: #2F4166;
+    --sun-ink: #FFB066; --sun-soft: #2E2116; --sun-dash: #5E3E1E;
+    --resto-soft: #2C1B1C; --bar-soft: #172820; --voir-ink: #C2A8FF; --voir-soft: #231C35; --info-soft: #152727;
+    --hero-ink: #F4EFE6;
+    --map-bg: #1E1C27; --map-park: #1F3326; --map-water: #22405A; --map-street: #34313F; --map-u2: #6B4A44; --map-text: #A79FB3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17161F; --dot: #2A2836; --surface: #22202C; --ink: #F4EFE6; --muted: #C9C1D3; --line: #0B0A10;
+  --yellow: #E9B934; --yellow-soft: #F2D35E;
+  --fri-ink: #FF7AA6; --fri-soft: #2C1A24; --fri-dash: #5A2A3C;
+  --sat-ink: #8CB4FF; --sat-soft: #1A2235; --sat-dash: #2F4166;
+  --sun-ink: #FFB066; --sun-soft: #2E2116; --sun-dash: #5E3E1E;
+  --resto-soft: #2C1B1C; --bar-soft: #172820; --voir-ink: #C2A8FF; --voir-soft: #231C35; --info-soft: #152727;
+  --hero-ink: #F4EFE6;
+  --map-bg: #1E1C27; --map-park: #1F3326; --map-water: #22405A; --map-street: #34313F; --map-u2: #6B4A44; --map-text: #A79FB3;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.45;
+}
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: flex; flex-direction: column; gap: 22px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; margin: 0; text-wrap: balance; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--sat); outline-offset: 2px; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); gap: 20px; align-items: start; }
+.hand { font-family: var(--font-hand); font-weight: 700; color: var(--fri-ink); }
+.kicker { font-size: 26px; line-height: 1; transform: rotate(-3deg); transform-origin: left; display: inline-block; }
+.over { font-family: var(--font-display); font-weight: 800; font-size: clamp(22px, 4vw, 32px); line-height: 1; margin-top: 8px; color: var(--hero-ink); }
+h1 { font-size: clamp(76px, 17vw, 150px); line-height: 0.84; letter-spacing: -0.04em; color: var(--hero-ink); text-shadow: 5px 5px 0 var(--yellow); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 14px; }
+.tagline { background: var(--yellow); color: #1B1B2F; border: 2.5px solid var(--line); border-radius: 12px; padding: 4px 14px; font-family: var(--font-display); font-weight: 800; font-size: 20px; box-shadow: 4px 4px 0 var(--line); transform: rotate(-2deg); }
+.dates { font-weight: 800; font-size: 15px; }
+.dates span { display: block; font-weight: 500; color: var(--muted); }
+.hotel { background: var(--yellow-soft); color: #1B1B2F; border: 2.5px solid var(--line); border-radius: 18px; padding: 16px 18px; box-shadow: 6px 6px 0 var(--line); transform: rotate(1.5deg); display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.hotel .lab { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.hotel h2 { font-size: 26px; line-height: 1; }
+.hotel p { margin: 0; font-size: 14px; }
+.hotel .addr { font-weight: 800; font-size: 15px; }
+.hotel .chip { background: #1B1B2F; color: #FFE27A; border-color: #1B1B2F; }
+
+.alert { background: #1B1B2F; color: #FFFFFF; border: 2.5px solid var(--line); border-radius: 14px; padding: 12px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
+.alert b { color: #F7C948; }
+.bang { flex-shrink: 0; width: 28px; height: 28px; border-radius: 14px; background: #F7C948; color: #1B1B2F; display: grid; place-items: center; font-weight: 800; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; gap: 8px; overflow-x: auto; padding-block: 8px; margin-inline: -16px; padding-inline: 16px; background: var(--bg); scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { flex-shrink: 0; text-decoration: none; font-weight: 800; font-size: 14px; padding: 7px 13px; border: 2px solid var(--line); border-radius: 999px; background: var(--surface); box-shadow: 2px 2px 0 var(--line); }
+.nav a.fri { background: var(--fri); color: var(--on-color); }
+.nav a.sat { background: var(--sat); color: var(--on-color); }
+.nav a.sun { background: var(--sun); color: #1B1B2F; }
+
+/* chips */
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 2px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-weight: 800; font-size: 13.5px; text-decoration: none; box-shadow: 2px 2px 0 var(--line); transition: transform .12s ease, box-shadow .12s ease; }
+.chip:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--line); }
+.chip:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--line); }
+.chip.route { background: var(--yellow-soft); color: #1B1B2F; }
+
+/* days */
+.day { border: 2.5px solid var(--line); border-radius: 20px; box-shadow: 6px 6px 0 var(--line); overflow: hidden; }
+.day-head { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; padding: 12px 18px; border-bottom: 2.5px solid var(--line); color: var(--on-color); }
+.day-head h2 { font-size: 30px; line-height: 1; text-transform: uppercase; }
+.day-date, .day-sub { font-weight: 800; font-size: 15px; }
+.day-sub { opacity: .92; font-weight: 700; }
+.sticker { margin-left: auto; font-family: var(--font-hand); font-weight: 700; font-size: 22px; line-height: 1.1; background: #FFE27A; color: #1B1B2F; border: 2px solid var(--line); border-radius: 10px; padding: 1px 10px; transform: rotate(3deg); }
+.fri { background: var(--fri-soft); } .fri .day-head { background: var(--fri); }
+.sat { background: var(--sat-soft); } .sat .day-head { background: var(--sat); }
+.sun { background: var(--sun-soft); } .sun .day-head { background: var(--sun); color: #1B1B2F; }
+.timeline { list-style: none; margin: 0; padding: 6px 18px 12px; }
+.timeline li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; padding: 11px 0; border-top: 2px dashed var(--fri-dash); }
+.sat .timeline li { border-top-color: var(--sat-dash); }
+.sun .timeline li { border-top-color: var(--sun-dash); }
+.timeline li:first-child { border-top: 0; }
+.timeline li.hi { background: var(--surface); border: 2.5px solid var(--line); border-radius: 12px; padding: 11px 12px; margin: 4px -12px; }
+.timeline li.hi + li { border-top: 0; }
+time { font-weight: 800; font-size: 17px; font-variant-numeric: tabular-nums; }
+.fri time { color: var(--fri-ink); } .sat time { color: var(--sat-ink); } .sun time { color: var(--sun-ink); }
+.what { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.what strong { font-size: 17px; }
+.what span { color: var(--muted); font-size: 15px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+/* day maps */
+.day-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 4px 18px; align-items: start; padding-right: 18px; }
+.day-map { margin: 14px 0 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.daymap { display: block; width: 100%; height: auto; max-height: 640px; border: 2.5px solid var(--line); border-radius: 14px; background: var(--map-bg); box-shadow: 3px 3px 0 var(--line); }
+.day-map figcaption { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--muted); }
+.day-map .links { margin-top: 4px; }
+.m-bg { fill: var(--map-bg); }
+.m-park { fill: var(--map-park); }
+.m-water { fill: none; stroke: var(--map-water); stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; }
+.m-street { fill: none; stroke: var(--map-street); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.m-u2 { fill: none; stroke: var(--map-u2); stroke-width: 4; stroke-linejoin: round; }
+.m-walk { fill: none; stroke-width: 4.5; stroke-dasharray: 9 7; stroke-linecap: round; }
+.m-ride { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.m-stop circle { stroke: var(--line); stroke-width: 3; }
+.m-stop text { fill: #FFFFFF; font: 800 18px var(--font-body); }
+.sun .m-stop text { fill: #1B1B2F; }
+.m-hotel rect { fill: #FFE27A; stroke: var(--line); stroke-width: 3; }
+.m-hotel text { fill: #1B1B2F; font: 800 18px var(--font-body); }
+.m-label { font: 800 17px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--map-bg); stroke-width: 5px; stroke-linejoin: round; }
+.m-slabel { font: italic 600 13px var(--font-body); fill: var(--map-text); paint-order: stroke; stroke: var(--map-bg); stroke-width: 4px; stroke-linejoin: round; }
+.m-scale line { stroke: var(--ink); stroke-width: 3; }
+.m-scale text, .m-north text { font: 800 13px var(--font-body); fill: var(--ink); }
+.m-north path { fill: var(--ink); }
+
+/* address sections */
+.block { border: 2.5px solid var(--line); border-radius: 20px; box-shadow: 6px 6px 0 var(--line); padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+.block-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.block-head h2 { font-size: 26px; line-height: 1.05; text-transform: uppercase; }
+.block-head .hand { margin-left: auto; font-size: 24px; transform: rotate(-3deg); }
+.ico { width: 40px; height: 40px; border-radius: 20px; border: 2.5px solid var(--line); display: grid; place-items: center; flex-shrink: 0; color: var(--on-color); }
+.restos { background: var(--resto-soft); } .restos .ico { background: var(--resto); } .restos .block-head .hand { color: var(--resto); }
+.bars { background: var(--bar-soft); } .bars .ico { background: var(--bar); } .bars .block-head .hand { color: var(--bar); }
+.voir { background: var(--voir-soft); } .voir .ico { background: var(--voir); }
+.infos { background: var(--info-soft); } .infos .ico { background: var(--info); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.place { background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.place p { margin: 0; font-size: 15px; }
+.p-top { display: flex; gap: 8px; align-items: center; }
+.p-top h3 { font-size: 19px; line-height: 1.1; min-width: 0; }
+.num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 14px; border: 2px solid var(--line); color: var(--on-color); display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+.r .num { background: var(--resto); } .b .num { background: var(--bar); } .voir .num { background: var(--voir); }
+.price { margin-left: auto; flex-shrink: 0; font-weight: 800; font-size: 13px; background: #FFE27A; color: #1B1B2F; border: 2px solid var(--line); border-radius: 999px; padding: 1px 9px; }
+.tag { font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--resto); }
+.addr { font-weight: 700; color: var(--muted); }
+.when { font-weight: 800; font-size: 14px !important; }
+.r .when { color: var(--resto); } .b .when { color: var(--bar); }
+:root:not([data-theme="light"]) .tag, :root:not([data-theme="light"]) .r .when { color: var(--resto); }
+.place .chip { align-self: flex-start; margin-top: 4px; }
+
+.voir-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px 18px; }
+.voir-list li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 10px; align-items: center; background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.voir-list strong { display: block; font-size: 16px; }
+.voir-list span:not(.num) { display: block; font-size: 14px; color: var(--muted); }
+
+.info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.info-grid div { font-size: 15px; }
+.info-grid b { display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--info); margin-bottom: 2px; }
+:root[data-theme="dark"] .info-grid b { color: #5FD0CC; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .info-grid b { color: #5FD0CC; } }
+.routes { display: flex; flex-wrap: wrap; gap: 8px; }
+
+footer { text-align: center; font-size: 56px; line-height: 1; transform: rotate(-3deg); margin-top: 6px; }
+footer small { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--muted); transform: rotate(3deg); margin-top: 14px; }
+
+@media (max-width: 760px) {
+  .day-body { grid-template-columns: minmax(0, 1fr); padding: 0; }
+  .day-map { order: -1; margin: 14px 14px 0; }
+}
+@media (max-width: 680px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hotel { transform: rotate(1deg); }
+  .sticker { margin-left: 0; }
+  .timeline { padding-inline: 14px; }
+  .timeline li { grid-template-columns: 50px minmax(0, 1fr); }
+  .timeline li.hi { margin-inline: -8px; padding-inline: 8px; }
+  .block-head .hand { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .chip { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <span class="hand kicker">2 jours, 1 ville, 1000 possibilités !</span>
+      <div class="over">WEEK-END À</div>
+      <h1>BERLIN</h1>
+      <div class="hero-meta">
+        <span class="tagline">Notre plan de A à Z</span>
+        <div class="dates">Ven. 2 → dim. 4 octobre 2026<span>Bonne bouffe, bons verres, belles balades !</span></div>
+      </div>
+    </div>
+    <aside class="hotel" aria-label="Notre hôtel">
+      <span class="lab">Notre hôtel</span>
+      <h2>Hotel B!RGIT</h2>
+      <p class="addr">Schwedter Str. 15, 10119 Berlin</p>
+      <p>Entre Mitte et Prenzlauer Berg, à 4 min du U2 Senefelderplatz. Check-out 11h, bagagerie.</p>
+      <div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div>
+    </aside>
+  </header>
+
+  <div class="alert" role="note"><span class="bang" aria-hidden="true">!</span><div><b>Samedi 3 octobre = Jour de l'Unité allemande (férié).</b> Boutiques fermées ; restos, bars et la plupart des musées ouverts. Dimanche, boutiques fermées aussi.</div></div>
+
+  <nav class="nav" aria-label="Sections">
+    <a class="fri" href="#vendredi">Vendredi</a>
+    <a class="sat" href="#samedi">Samedi</a>
+    <a class="sun" href="#dimanche">Dimanche</a>
+    <a href="#restos">Restos</a>
+    <a href="#bars">Bars</a>
+    <a href="#voir">À voir</a>
+    <a href="#infos">Infos</a>
+  </nav>
+
+  <section class="day fri" id="vendredi" aria-labelledby="h-vendredi">
+<div class="day-head"><h2 id="h-vendredi">Vendredi</h2><span class="day-date">2 oct.</span><span class="day-sub">Prenzlauer Berg → Solar</span><span class="sticker">Good vibes only !</span></div>
+<div class="day-body"><ol class="timeline">
+<li><time>18h30</time><div class="what"><strong>Apéro au Tipsy Bear</strong><span>Happy hour 18h–19h · Eberswalder Str. 21</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Tipsy+Bear%2C+Eberswalder+Str.+21%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>19h55</time><div class="what"><strong>U2 Eberswalder → Potsdamer Platz</strong><span>Puis 10 min à pied, ≈ 30 min au total</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tipsy+Bear%2C+Eberswalder+Str.+21%2C+10437+Berlin&amp;destination=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Itinéraire vers le Solar</a></div></div></li>
+<li class="hi"><time>20h30</time><div class="what"><strong>Dîner au Solar · réservé</strong><span>16e étage, ascenseur vitré, vue à 270° · Stresemannstr. 76, dans la cour</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>22h30</time><div class="what"><strong>Sky Bar du Solar, 17e</strong><span>Un escalier plus haut · DJ, cocktails, sans réservation</span></div></li>
+<li><time>00h30</time><div class="what"><strong>Retour en U2 ou taxi</strong><span>Dernier verre au Tipsy Bear (ouvert jusqu&#x27;à 3h) pour les courageux</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin&amp;destination=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Retour à l&#x27;hôtel</a></div></div></li>
+</ol><figure class="day-map"><svg class="daymap" viewBox="0 0 500 738" role="img" aria-label="Carte schématique de la journée" preserveAspectRatio="xMidYMid meet"><rect width="500" height="738" class="m-bg"/><path d="M-446.8 416.7 L21.3 416.7 L21.3 590.3 L-446.8 616.3 Z" class="m-park"/><path d="M313.8 95.5 L329.8 -69.4 L367.0 -69.4 L348.9 95.5 Z" class="m-park"/><path d="M351.1 -86.8 L388.3 -86.8 L388.3 -38.2 L351.1 -38.2 Z" class="m-park"/><path d="M-74.5 364.6 L-5.3 390.6 Q63.8 416.7 111.7 408.0 Q159.6 399.3 207.4 395.0 Q255.3 390.6 287.2 412.3 Q319.1 434.0 351.1 468.8 Q383.0 503.5 430.9 529.5 Q478.7 555.6 547.9 590.3 L617.0 625.0" class="m-water"/><path d="M420.2 347.2 L404.3 260.4 L425.5 138.9 L430.9 34.7 L446.8 -104.2" class="m-street"/><path d="M356.4 164.9 L388.3 104.2 L409.6 48.6" class="m-street"/><path d="M335.1 78.1 L255.3 121.5 L187.2 152.8 L85.1 225.7" class="m-street"/><path d="M168.1 284.7 L287.2 263.9 L409.6 276.1 L531.9 298.6" class="m-street"/><path d="M329.8 355.9 L313.8 251.7 L356.4 164.9" class="m-street"/><path d="M308.5 43.4 L427.7 45.1 L574.5 78.1" class="m-street"/><path d="M170.2 243.1 L196.8 685.8" class="m-street"/><path d="M60.6 480.9 L287.2 460.1" class="m-street"/><path d="M63.8 597.2 L344.7 567.7" class="m-street"/><path d="M63.8 597.2 L138.3 746.6" class="m-street"/><path d="M287.2 460.1 L438.3 383.7 L500.0 312.5" class="m-street"/><path d="M478.7 303.8 L553.2 69.4 L585.1 -69.4" class="m-street"/><path d="M436.2 243.1 L486.2 133.7 L510.6 34.7" class="m-street"/><path d="M427.7 45.1 L431.9 197.9 L409.6 276.1 L438.3 383.7 L427.7 465.3 L404.3 545.2 L344.7 567.7 L258.5 531.3 L189.4 559.1 L134.0 559.1 L41.5 597.2" class="m-u2"/><text x="441" y="118" text-anchor="start" class="m-slabel">Schönhauser Allee</text><text x="197" y="552" text-anchor="middle" class="m-slabel">Leipziger Str.</text><text x="160" y="368" text-anchor="middle" class="m-slabel">Spree</text><text x="447" y="451" text-anchor="start" class="m-slabel">U2</text><text x="27" y="616" text-anchor="start" class="m-slabel">Potsdamer Platz</text><path d="M388.3 225.7 L393.6 182.3 Q398.9 138.9 403.7 95.5 L408.5 52.1" class="m-walk" style="stroke:var(--fri)"/><path d="M408.5 52.1 L418.1 48.6 L427.7 45.1" class="m-walk" style="stroke:var(--fri)"/><path d="M427.7 45.1 L431.9 197.9 L409.6 276.1 L438.3 383.7 L427.7 465.3 L404.3 545.2 L344.7 567.7 L258.5 531.3 L189.4 559.1 L134.0 559.1 L41.5 597.2" class="m-ride" style="stroke:var(--fri)"/><path d="M41.5 597.2 L52.7 619.8 Q63.8 642.4 74.5 668.4 L85.1 694.5" class="m-walk" style="stroke:var(--fri)"/><g class="m-hotel"><rect x="371" y="209" width="34" height="34" rx="9"/><text x="388" y="233" text-anchor="middle">H</text></g><text x="364" y="233" text-anchor="end" class="m-label">Hôtel B!RGIT</text><g class="m-stop"><circle cx="409" cy="52" r="17" style="fill:var(--fri)"/><text x="409" y="59" text-anchor="middle">1</text></g><text x="385" y="59" text-anchor="end" class="m-label">Tipsy Bear</text><g class="m-stop"><circle cx="85" cy="694" r="17" style="fill:var(--fri)"/><text x="85" y="701" text-anchor="middle">2</text></g><text x="109" y="701" text-anchor="start" class="m-label">Solar · dîner + Sky Bar</text><g class="m-scale"><line x1="391" y1="712" x2="470" y2="712"/><text x="431" y="702" text-anchor="middle">500 m</text></g><g class="m-north"><path d="M34 30 L46 62 L34 54 L22 62 Z"/><text x="34" y="24" text-anchor="middle">N</text></g></svg><figcaption><span>Carte schématique de la journée · H = hôtel</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tipsy+Bear%2C+Eberswalder+Str.+21%2C+10437+Berlin&amp;destination=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Itinéraire Tipsy Bear → Solar</a></div></figcaption></figure></div></section>
+<section class="day sat" id="samedi" aria-labelledby="h-samedi">
+<div class="day-head"><h2 id="h-samedi">Samedi</h2><span class="day-date">3 oct. · férié</span><span class="day-sub">Mitte &amp; Prenzlauer Berg</span><span class="sticker">Culture &amp; balades !</span></div>
+<div class="day-body"><ol class="timeline">
+<li><time>10h00</time><div class="what"><strong>Mémorial du Mur</strong><span>Bernauer Str. 111, en plein air · 15 min à pied de l&#x27;hôtel</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Gedenkst%C3%A4tte+Berliner+Mauer%2C+Bernauer+Str.+111%2C+13355+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Gedenkst%C3%A4tte+Berliner+Mauer%2C+Bernauer+Str.+111%2C+13355+Berlin&amp;travelmode=walking" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>À pied</a></div></div></li>
+<li><time>11h30</time><div class="what"><strong>Hackesche Höfe</strong><span>Cours Art nouveau et cafés · boutiques fermées (férié)</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Hackesche+H%C3%B6fe%2C+Rosenthaler+Str.+40-41%2C+10178+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>13h00</time><div class="what"><strong>Déjeuner chez Monsieur Vuong</strong><span>Pho et currys vietnamiens, sans réservation</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Monsieur+Vuong%2C+Alte+Sch%C3%B6nhauser+Str.+46%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>14h30</time><div class="what"><strong>Île aux Musées → Alexanderplatz</strong><span>Un musée si l&#x27;envie y est, sinon balade le long de la Spree</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Museumsinsel%2C+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Île aux Musées</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Berliner+Fernsehturm%2C+Alexanderplatz%2C+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Tour TV</a></div></div></li>
+<li><time>17h00</time><div class="what"><strong>Bière au Prater Garten</strong><span>Le plus vieux biergarten de Berlin, bière maison</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Prater+Garten%2C+Kastanienallee+7-9%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>19h30</time><div class="what"><strong>Dîner au Zum Schusterjungen</strong><span>Cuisine berlinoise, cash only · plan B : Babel ou The Bird (à réserver)</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Zum+Schusterjungen%2C+Danziger+Str.+9%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Babel%2C+Kastanienallee+33%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Babel</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=The+Bird%2C+Am+Falkplatz+5%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>The Bird</a></div></div></li>
+<li><time>21h30</time><div class="what"><strong>Cocktails au Becketts Kopf</strong><span>Puis Schwarze Pumpe ou Weinerei Forum</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Becketts+Kopf%2C+Pappelallee+64%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Schwarze+Pumpe%2C+Choriner+Str.+76%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Schwarze Pumpe</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Weinerei+Forum%2C+Fehrbelliner+Str.+57%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Weinerei</a></div></div></li>
+</ol><figure class="day-map"><svg class="daymap" viewBox="0 0 500 693" role="img" aria-label="Carte schématique de la journée" preserveAspectRatio="xMidYMid meet"><rect width="500" height="693" class="m-bg"/><path d="M-753.4 614.9 L-150.7 614.9 L-150.7 838.5 L-753.4 872.1 Z" class="m-park"/><path d="M226.0 201.2 L246.6 -11.2 L294.5 -11.2 L271.2 201.2 Z" class="m-park"/><path d="M274.0 -33.5 L321.9 -33.5 L321.9 29.1 L274.0 29.1 Z" class="m-park"/><path d="M-274.0 547.8 L-184.9 581.4 Q-95.9 614.9 -34.2 603.7 Q27.4 592.6 89.0 587.0 Q150.7 581.4 191.8 609.3 Q232.9 637.3 274.0 682.0 Q315.1 726.7 376.7 760.3 Q438.4 793.8 527.4 838.5 L616.4 883.3" class="m-water"/><path d="M363.0 525.5 L342.5 413.7 L369.9 257.2 L376.7 123.0 L397.3 -55.9" class="m-street"/><path d="M280.8 290.7 L321.9 212.4 L349.3 140.9" class="m-street"/><path d="M253.4 178.9 L150.7 234.8 L63.0 275.0 L-68.5 369.0" class="m-street"/><path d="M38.4 445.0 L191.8 418.2 L349.3 433.8 L506.8 462.9" class="m-street"/><path d="M246.6 536.7 L226.0 402.5 L280.8 290.7" class="m-street"/><path d="M219.2 134.2 L372.6 136.4 L561.6 178.9" class="m-street"/><path d="M41.1 391.3 L75.3 961.5" class="m-street"/><path d="M-100.0 697.7 L191.8 670.8" class="m-street"/><path d="M-95.9 847.5 L265.8 809.5" class="m-street"/><path d="M-95.9 847.5 L0.0 1039.8" class="m-street"/><path d="M191.8 670.8 L386.3 572.4 L465.8 480.8" class="m-street"/><path d="M438.4 469.6 L534.2 167.7 L575.3 -11.2" class="m-street"/><path d="M383.6 391.3 L447.9 250.4 L479.5 123.0" class="m-street"/><path d="M372.6 136.4 L378.1 333.2 L349.3 433.8 L386.3 572.4 L372.6 677.5 L342.5 780.4 L265.8 809.5 L154.8 762.5 L65.8 798.3 L-5.5 798.3 L-124.7 847.5" class="m-u2"/><text x="144" y="400" text-anchor="middle" class="m-slabel">Torstraße</text><text x="137" y="210" text-anchor="middle" class="m-slabel">Bernauer Str.</text><text x="397" y="313" text-anchor="start" class="m-slabel">Schönhauser Allee</text><text x="89" y="599" text-anchor="middle" class="m-slabel">Spree</text><text x="290" y="226" text-anchor="end" class="m-slabel">Kastanienallee</text><path d="M321.9 369.0 L250.0 341.0 Q178.1 313.1 120.5 294.0 L63.0 275.0" class="m-walk" style="stroke:var(--sat)"/><path d="M63.0 275.0 L127.4 333.2 Q191.8 391.3 213.7 452.8 L235.6 514.3" class="m-walk" style="stroke:var(--sat)"/><path d="M235.6 514.3 L254.8 499.8 Q274.0 485.2 294.5 474.1 L315.1 462.9" class="m-walk" style="stroke:var(--sat)"/><path d="M315.1 462.9 L267.1 511.0 Q219.2 559.0 198.6 598.2 L178.1 637.3" class="m-walk" style="stroke:var(--sat)"/><path d="M178.1 637.3 L219.2 631.7 Q260.3 626.1 297.3 611.6 L334.2 597.0" class="m-walk" style="stroke:var(--sat)"/><path d="M386.3 572.4 L349.3 433.8 L378.1 333.2 L372.6 136.4" class="m-ride" style="stroke:var(--sat)"/><path d="M372.6 136.4 L356.8 154.3 L341.1 172.2" class="m-walk" style="stroke:var(--sat)"/><path d="M341.1 172.2 L355.5 164.4 Q369.9 156.5 384.9 164.4 L400.0 172.2" class="m-walk" style="stroke:var(--sat)"/><path d="M400.0 172.2 L419.2 136.4 Q438.4 100.6 448.6 72.7 L458.9 44.7" class="m-walk" style="stroke:var(--sat)"/><g class="m-hotel"><rect x="305" y="352" width="34" height="34" rx="9"/><text x="322" y="376" text-anchor="middle">H</text></g><g class="m-stop"><circle cx="63" cy="275" r="17" style="fill:var(--sat)"/><text x="63" y="282" text-anchor="middle">1</text></g><text x="85" y="282" text-anchor="start" class="m-label">Mémorial du Mur</text><g class="m-stop"><circle cx="236" cy="514" r="17" style="fill:var(--sat)"/><text x="236" y="521" text-anchor="middle">2</text></g><text x="214" y="521" text-anchor="end" class="m-label">Hackesche Höfe</text><g class="m-stop"><circle cx="315" cy="463" r="17" style="fill:var(--sat)"/><text x="315" y="470" text-anchor="middle">3</text></g><text x="337" y="470" text-anchor="start" class="m-label">Monsieur Vuong</text><g class="m-stop"><circle cx="178" cy="637" r="17" style="fill:var(--sat)"/><text x="178" y="644" text-anchor="middle">4</text></g><text x="156" y="644" text-anchor="end" class="m-label">Île aux Musées</text><g class="m-stop"><circle cx="334" cy="597" r="17" style="fill:var(--sat)"/><text x="334" y="604" text-anchor="middle">5</text></g><text x="356" y="604" text-anchor="start" class="m-label">Tour TV</text><g class="m-stop"><circle cx="341" cy="172" r="17" style="fill:var(--sat)"/><text x="341" y="179" text-anchor="middle">6</text></g><text x="319" y="179" text-anchor="end" class="m-label">Prater Garten</text><g class="m-stop"><circle cx="400" cy="172" r="17" style="fill:var(--sat)"/><text x="400" y="179" text-anchor="middle">7</text></g><text x="400" y="212" text-anchor="middle" class="m-label">Schusterjungen</text><g class="m-stop"><circle cx="459" cy="45" r="17" style="fill:var(--sat)"/><text x="459" y="52" text-anchor="middle">8</text></g><text x="437" y="52" text-anchor="end" class="m-label">Becketts Kopf</text><g class="m-scale"><line x1="369" y1="667" x2="470" y2="667"/><text x="419" y="657" text-anchor="middle">500 m</text></g><g class="m-north"><path d="M34 30 L46 62 L34 54 L22 62 Z"/><text x="34" y="24" text-anchor="middle">N</text></g></svg><figcaption><span>Carte schématique de la journée · H = hôtel</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Monsieur+Vuong%2C+Alte+Sch%C3%B6nhauser+Str.+46%2C+10119+Berlin&amp;travelmode=walking&amp;waypoints=Gedenkst%C3%A4tte+Berliner+Mauer%2C+Bernauer+Str.+111%2C+13355+Berlin%7CHackesche+H%C3%B6fe%2C+Rosenthaler+Str.+40-41%2C+10178+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Balade du matin (à pied)</a><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Prater+Garten%2C+Kastanienallee+7-9%2C+10435+Berlin&amp;destination=Becketts+Kopf%2C+Pappelallee+64%2C+10437+Berlin&amp;travelmode=walking&amp;waypoints=Zum+Schusterjungen%2C+Danziger+Str.+9%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Soirée (à pied)</a></div></figcaption></figure></div></section>
+<section class="day sun" id="dimanche" aria-labelledby="h-dimanche">
+<div class="day-head"><h2 id="h-dimanche">Dimanche</h2><span class="day-date">4 oct.</span><span class="day-sub">Mauerpark → BER à 15h00</span><span class="sticker">Dernière balade !</span></div>
+<div class="day-body"><ol class="timeline">
+<li><time>09h30</time><div class="what"><strong>Check-out, bagages en consigne</strong><span>À la réception du B!RGIT</span></div></li>
+<li><time>09h45</time><div class="what"><strong>Brunch au Café Anna Blume</strong><span>Étagères à brunch et gâteaux maison · Kollwitzstr. 83</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Anna+Blume%2C+Kollwitzstr.+83%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>11h15</time><div class="what"><strong>Mauerpark</strong><span>Marché aux puces du dimanche (10h–18h), environ 400 stands</span><div class="links"><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Flohmarkt+im+Mauerpark%2C+Bernauer+Str.+63-64%2C+13355+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></div></div></li>
+<li><time>12h45</time><div class="what"><strong>Street food au Mauerpark</strong><span>Konnopke&#x27;s est fermé le dimanche</span></div></li>
+<li><time>13h35</time><div class="what"><strong>Récupérer les bagages</strong><span>Hotel B!RGIT</span></div></li>
+<li class="hi"><time>13h50</time><div class="what"><strong>Départ pour BER</strong><span>U2 Senefelderplatz → Potsdamer Platz, puis FEX (toutes les 15 min) · billet ABC</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Flughafen+Berlin+Brandenburg+BER+Terminal+1&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Itinéraire vers BER</a></div></div></li>
+<li><time>14h40</time><div class="what"><strong>Arrivée à BER</strong><span>20 min de marge sur 15h00 · plan B : S9 direct depuis Alexanderplatz</span></div></li>
+</ol><figure class="day-map"><svg class="daymap" viewBox="0 0 500 675" role="img" aria-label="Carte schématique de la journée" preserveAspectRatio="xMidYMid meet"><rect width="500" height="675" class="m-bg"/><path d="M-1288.5 941.9 L-442.3 941.9 L-442.3 1255.9 L-1288.5 1303.0 Z" class="m-park"/><path d="M86.5 361.1 L115.4 62.8 L182.7 62.8 L150.0 361.1 Z" class="m-park"/><path d="M153.8 31.4 L221.2 31.4 L221.2 119.3 L153.8 119.3 Z" class="m-park"/><path d="M-615.4 847.7 L-490.4 894.8 Q-365.4 941.9 -278.8 926.2 Q-192.3 910.5 -105.8 902.7 Q-19.2 894.8 38.5 934.1 Q96.2 973.3 153.8 1036.1 Q211.5 1098.9 298.1 1146.0 Q384.6 1193.1 509.6 1255.9 L634.6 1318.7" class="m-water"/><path d="M278.8 816.3 L250.0 659.3 L288.5 439.6 L298.1 251.2 L326.9 0.0" class="m-street"/><path d="M163.5 486.6 L221.2 376.8 L259.6 276.3" class="m-street"/><path d="M125.0 329.7 L-19.2 408.2 L-142.3 464.7 L-326.9 596.5" class="m-street"/><path d="M-176.9 703.3 L38.5 665.6 L259.6 687.6 L480.8 728.4" class="m-street"/><path d="M115.4 832.0 L86.5 643.6 L163.5 486.6" class="m-street"/><path d="M76.9 266.9 L292.3 270.0 L557.7 329.7" class="m-street"/><path d="M-173.1 627.9 L-125.0 1428.5" class="m-street"/><path d="M-371.2 1058.1 L38.5 1020.4" class="m-street"/><path d="M-365.4 1268.4 L142.3 1215.1" class="m-street"/><path d="M-365.4 1268.4 L-230.8 1538.4" class="m-street"/><path d="M38.5 1020.4 L311.5 882.2 L423.1 753.5" class="m-street"/><path d="M384.6 737.8 L519.2 314.0 L576.9 62.8" class="m-street"/><path d="M307.7 627.9 L398.1 430.1 L442.3 251.2" class="m-street"/><path d="M292.3 270.0 L300.0 546.3 L259.6 687.6 L311.5 882.2 L292.3 1029.8 L250.0 1174.2 L142.3 1215.1 L-13.5 1149.1 L-138.5 1199.4 L-238.5 1199.4 L-405.8 1268.4" class="m-u2"/><text x="54" y="402" text-anchor="middle" class="m-slabel">Bernauer Str.</text><text x="327" y="151" text-anchor="start" class="m-slabel">Schönhauser Allee</text><text x="188" y="392" text-anchor="end" class="m-slabel">Kastanienallee</text><text x="327" y="575" text-anchor="start" class="m-slabel">U2 + FEX → BER</text><text x="346" y="502" text-anchor="start" class="m-slabel">Kollwitzstr.</text><path d="M221.2 596.5 L274.0 549.4 Q326.9 502.3 370.2 423.9 L413.5 345.4" class="m-walk" style="stroke:var(--sun)"/><path d="M413.5 345.4 L341.3 310.8 Q269.2 276.3 192.3 287.3 L115.4 298.3" class="m-walk" style="stroke:var(--sun)"/><path d="M115.4 298.3 L134.6 368.9 Q153.8 439.6 187.5 518.0 L221.2 596.5" class="m-walk" style="stroke:var(--sun)"/><path d="M221.2 596.5 L260.6 571.4 L300.0 546.3" class="m-walk" style="stroke:var(--sun)"/><g class="m-hotel"><rect x="204" y="580" width="34" height="34" rx="9"/><text x="221" y="604" text-anchor="middle">H</text></g><text x="245" y="604" text-anchor="start" class="m-label">Hôtel</text><g class="m-stop"><circle cx="413" cy="345" r="17" style="fill:var(--sun)"/><text x="413" y="352" text-anchor="middle">1</text></g><text x="391" y="352" text-anchor="end" class="m-label">Café Anna Blume</text><g class="m-stop"><circle cx="115" cy="298" r="17" style="fill:var(--sun)"/><text x="115" y="305" text-anchor="middle">2</text></g><text x="137" y="305" text-anchor="start" class="m-label">Mauerpark</text><g class="m-scale"><line x1="328" y1="649" x2="470" y2="649"/><text x="399" y="639" text-anchor="middle">500 m</text></g><g class="m-north"><path d="M34 30 L46 62 L34 54 L22 62 Z"/><text x="34" y="24" text-anchor="middle">N</text></g></svg><figcaption><span>Carte schématique de la journée · H = hôtel</span><div class="links"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Flohmarkt+im+Mauerpark%2C+Bernauer+Str.+63-64%2C+13355+Berlin&amp;travelmode=walking&amp;waypoints=Caf%C3%A9+Anna+Blume%2C+Kollwitzstr.+83%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Matinée (à pied)</a><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Flughafen+Berlin+Brandenburg+BER+Terminal+1&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Hôtel → BER</a></div></figcaption></figure></div></section>
+
+  <section class="block restos" id="restos" aria-labelledby="h-restos">
+    <div class="block-head">
+      <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 1-3 4-3 7h3v11"/></svg></span>
+      <h2 id="h-restos">Nos restos coups de cœur</h2>
+      <span class="hand">On mange bien à Berlin !</span>
+    </div>
+    <div class="grid">
+<article class="place r"><div class="p-top"><span class="num">1</span><h3>Solar</h3><span class="price">€€€</span></div><div class="tag">Rooftop</div><p class="addr">Stresemannstr. 76 · Kreuzberg</p><p>Dîner au 16e étage avec vue à 270° sur Berlin. L&#x27;ascenseur vitré extérieur fait partie du show.</p><p class="when">Vendredi soir · réservé</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">2</span><h3>MaMi&#x27;s Food &amp; Wine</h3><span class="price">€€€</span></div><div class="tag">Fusion</div><p class="addr">Oderberger Str. 13</p><p>Menus de 8 ou 10 petites assiettes à partager, influences espagnoles et asiatiques, environ 200 vins.</p><p class="when">Lun.–ven. · fermé le samedi</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=MaMi%27s+Food+%26+Wine%2C+Oderberger+Str.+13%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">3</span><h3>Zum Schusterjungen</h3><span class="price">€</span></div><div class="tag">Berlinois</div><p class="addr">Danziger Str. 9</p><p>Vraie cuisine de bistrot berlinois : schnitzel, Kapernklopse (boulettes sauce aux câpres), jarret.</p><p class="when">Tous les jours 12h–0h · cash only</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Zum+Schusterjungen%2C+Danziger+Str.+9%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">4</span><h3>Babel</h3><span class="price">€</span></div><div class="tag">Libanais</div><p class="addr">Kastanienallee 33</p><p>Institution du quartier : falafels, halloumi, kafta, portions XXL et grande terrasse.</p><p class="when">Tous les jours 11h–1h</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Babel%2C+Kastanienallee+33%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">5</span><h3>The Bird</h3><span class="price">€€</span></div><div class="tag">Burgers</div><p class="addr">Am Falkplatz 5</p><p>Steakhouse façon New York : burgers de 250 g, frites maison, wings et steaks.</p><p class="when">Réserver · tables pour 2h</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=The+Bird%2C+Am+Falkplatz+5%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">6</span><h3>Monsieur Vuong</h3><span class="price">€€</span></div><div class="tag">Vietnamien</div><p class="addr">Alte Schönhauser Str. 46 · Mitte</p><p>Pho, currys, rouleaux de printemps. La carte change deux fois par semaine.</p><p class="when">Sam. 12h–22h30 · sans réservation</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Monsieur+Vuong%2C+Alte+Sch%C3%B6nhauser+Str.+46%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">7</span><h3>Café Anna Blume</h3><span class="price">€€</span></div><div class="tag">Brunch</div><p class="addr">Kollwitzstr. 83</p><p>Café-fleuriste : étagères à brunch, plus de 40 gâteaux maison, terrasse sous les platanes.</p><p class="when">Petit-déj 9h–15h tous les jours</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+Anna+Blume%2C+Kollwitzstr.+83%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">8</span><h3>Prater Garten</h3><span class="price">€€</span></div><div class="tag">Biergarten</div><p class="addr">Kastanienallee 7-9</p><p>Le plus vieux biergarten de Berlin, bière brassée maison, cuisine allemande dans la salle.</p><p class="when">Biergarten dès 12h · salle dès 17h</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Prater+Garten%2C+Kastanienallee+7-9%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place r"><div class="p-top"><span class="num">9</span><h3>Konnopke&#x27;s Imbiss</h3><span class="price">€</span></div><div class="tag">Currywurst</div><p class="addr">Sous le U2 Eberswalder Str.</p><p>La currywurst historique, servie au même endroit depuis 1930.</p><p class="when">Sam. dès 12h · fermé le dimanche</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Konnopke%27s+Imbiss%2C+Sch%C3%B6nhauser+Allee+44B%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+    </div>
+  </section>
+
+  <section class="block bars" id="bars" aria-labelledby="h-bars">
+    <div class="block-head">
+      <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8zM12 12v7M8 20h8"/></svg></span>
+      <h2 id="h-bars">Nos bars coups de cœur</h2>
+      <span class="hand">Des bars pour tous les goûts !</span>
+    </div>
+    <div class="grid">
+<article class="place b"><div class="p-top"><span class="num">1</span><h3>Solar Sky Bar</h3><span class="price">Rooftop</span></div><p class="addr">17e étage du Solar</p><p>Canapés, balancelles, DJ et la vue sur tout Berlin. On y monte après le dîner.</p><p class="when">Sans réservation</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place b"><div class="p-top"><span class="num">2</span><h3>Becketts Kopf</h3><span class="price">Cocktails</span></div><p class="addr">Pappelallee 64</p><p>Cocktails classiques à base de spiritueux artisanaux, derrière une façade discrète. Ambiance feutrée.</p><p class="when">Mer.–sam. dès 20h · résa conseillée</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Becketts+Kopf%2C+Pappelallee+64%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place b"><div class="p-top"><span class="num">3</span><h3>Weinerei Forum</h3><span class="price">Vin</span></div><p class="addr">Fehrbelliner Str. 57</p><p>Le concept culte : le soir, tu loues ton verre 2 €, tu te sers, et tu paies en partant ce que tu estimes juste.</p><p class="when">Le soir · jouez le jeu</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Weinerei+Forum%2C+Fehrbelliner+Str.+57%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place b"><div class="p-top"><span class="num">4</span><h3>Tipsy Bear</h3><span class="price">Festif</span></div><p class="addr">Eberswalder Str. 21</p><p>Bar queer très accueillant, drag shows le week-end, DJ dès 22h. Happy hours 18h–19h et 22h–23h.</p><p class="when">Jusqu&#x27;à 3h ven. et sam.</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Tipsy+Bear%2C+Eberswalder+Str.+21%2C+10437+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place b"><div class="p-top"><span class="num">5</span><h3>Schwarze Pumpe</h3><span class="price">Kneipe</span></div><p class="addr">Choriner Str. 76 · à 5 min de l&#x27;hôtel</p><p>Vraie Kneipe est-allemande : vieux parquet, tabourets récupérés des mines de lignite, bière pas chère.</p><p class="when">Jusqu&#x27;à 1h · cash only</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Schwarze+Pumpe%2C+Choriner+Str.+76%2C+10119+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+<article class="place b"><div class="p-top"><span class="num">6</span><h3>Bar Tausend</h3><span class="price">Speakeasy</span></div><p class="addr">Schiffbauerdamm 11 · Mitte</p><p>Porte en acier sans enseigne sous les voies de Friedrichstraße, tunnel à plafond miroir, DJ. Tenue soignée.</p><p class="when">Jeu.–sam. dès 21h · porte sélective</p><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+Tausend%2C+Schiffbauerdamm+11%2C+10117+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Ouvrir dans Google Maps</a></article>
+    </div>
+  </section>
+
+  <section class="block voir" id="voir" aria-labelledby="h-voir">
+    <div class="block-head">
+      <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l2-3h4l2 3"/><circle cx="12" cy="13" r="3.5"/></svg></span>
+      <h2 id="h-voir">À voir / à faire</h2>
+    </div>
+    <ul class="voir-list">
+<li><span class="num">1</span><div><strong>Mémorial du Mur</strong><span>Le Mur et le no man&#x27;s land, en plein air. Bernauer Str. 111.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Gedenkst%C3%A4tte+Berliner+Mauer%2C+Bernauer+Str.+111%2C+13355+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">2</span><div><strong>Mauerpark</strong><span>Marché aux puces le dimanche 10h–18h, environ 400 stands.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Flohmarkt+im+Mauerpark%2C+Bernauer+Str.+63-64%2C+13355+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">3</span><div><strong>Hackesche Höfe</strong><span>Enfilade de cours Art nouveau en plein Mitte.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Hackesche+H%C3%B6fe%2C+Rosenthaler+Str.+40-41%2C+10178+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">4</span><div><strong>Île aux Musées</strong><span>Cathédrale, musées et bords de Spree.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Museumsinsel%2C+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">5</span><div><strong>Kulturbrauerei</strong><span>Ancienne brasserie en brique, cours et lieux culturels.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Kulturbrauerei%2C+Sch%C3%B6nhauser+Allee+36%2C+10435+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">6</span><div><strong>Kollwitzplatz</strong><span>La place la plus charmante de Prenzlauer Berg.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Kollwitzplatz%2C+10405+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+<li><span class="num">7</span><div><strong>Alexanderplatz</strong><span>La tour de la TV, impossible à rater.</span></div><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=Berliner+Fernsehturm%2C+Alexanderplatz%2C+Berlin" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Maps</a></li>
+    </ul>
+  </section>
+
+  <section class="block infos" id="infos" aria-labelledby="h-infos">
+    <div class="block-head">
+      <span class="ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span>
+      <h2 id="h-infos">Infos pratiques</h2>
+    </div>
+    <div class="info-grid">
+      <div><b>Métro</b>La U2 fait presque tout : Senefelderplatz (hôtel), Eberswalder Str. (bars), Potsdamer Platz (Solar et FEX).</div>
+      <div><b>Billets</b>Zone AB en ville, zone ABC pour aller à l'aéroport BER.</div>
+      <div><b>Réservations</b>Solar : fait. The Bird et Becketts Kopf : mieux vaut réserver pour samedi.</div>
+      <div><b>Espèces</b>Cash only au Zum Schusterjungen et à la Schwarze Pumpe.</div>
+    </div>
+    <div class="routes"><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Tipsy+Bear%2C+Eberswalder+Str.+21%2C+10437+Berlin&amp;destination=Solar+Berlin%2C+Stresemannstra%C3%9Fe+76%2C+10963+Berlin&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Tipsy Bear → Solar</a><a class="chip route" href="https://www.google.com/maps/dir/?api=1&amp;origin=Hotel+BIRGIT+Berlin+Mitte%2C+Schwedter+Str.+15%2C+10119+Berlin&amp;destination=Flughafen+Berlin+Brandenburg+BER+Terminal+1&amp;travelmode=transit" target="_blank" rel="noopener"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg>Hôtel → BER</a></div>
+  </section>
+
+  <footer class="hand">Viel Spaß !<small>Les liens ouvrent Google Maps. Horaires vérifiés le 1er octobre 2026.</small></footer>
+</div>
+
+</body>
+</html>
